@@ -7,5 +7,8 @@ cd /home/admin/caliper-benchmarks/ && npm rebuild
 sudo docker pull hyperledger/fabric-ccenv:1.4.4 
 sudo docker tag hyperledger/fabric-ccenv:1.4.4 hyperledger/fabric-ccenv:latest 
 
+# Running Workload A
+
+while true; do docker stats --no-stream | tee --append stats.txt; sleep 30; done
 cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/v1/v1.4.4/2org1peercouchdb_raft/fabric-go-tls-solo.yaml
 
