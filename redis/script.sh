@@ -1,7 +1,9 @@
 #!/bin/bash
 
+echo "Starting Docker Stats...\n"
 ./save_docker_stats.sh $$
 
+echo "Start Redis Benchmark using YCSB..."
 docker-compose -f docker-compose.yml up --scale redis-master=1 --scale redis-replica=5 -d
 
 cd /home/admin/YCSB/
@@ -25,3 +27,6 @@ do
 		done
 	fi
 done
+
+docker-compose -f docker-compose.yml down -v
+printf "\nFinished Redis Benchmark\n\n"
