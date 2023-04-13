@@ -1,7 +1,7 @@
 #!/bin/bash
 
 other_script_pid=$1
-output_file="output/docker_stats.csv"
+output_file="/home/admin/output/docker_stats.csv"
 
 # Write the headers to the output file
 echo "Container, CPU %, Memory Usage" > "$output_file"
