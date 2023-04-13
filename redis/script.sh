@@ -17,43 +17,27 @@ sudo chmod 770 /home/admin/output/
 load_output="/home/admin/output/load_output.csv"
 run_output="/home/admin/output/run_output.csv"
 
+echo "Workload, Action, Type, Result" > $load_output
+echo "Workload, Action, Type, Result" > $run_output
+
 for i in {1..3}
 do
-printf "\n##################################################################################\n" >> $load_output
-printf "Loading data worload A try $i \n" >> $load_output
-./bin/ycsb load redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $load_output
-printf "\n##################################################################################\n" >> $run_output
-printf "Running test workoad A try $i\n" >> $run_output
-./bin/ycsb run redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $run_output
 
-printf "\n##################################################################################\n" >> $load_output
-printf " Loading data worload B try $i \n" >> $load_output
-./bin/ycsb load redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $load_output
-printf "\n##################################################################################\n" >> $run_output
-printf "Running test workoad B try $i\n" >> $run_output
-./bin/ycsb run redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $run_output
+	ycsb_load_output=$(./bin/ycsb load redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "A, $ycsb_load_output" >> $load_output
+	ycsb_run_output=$(./bin/ycsb run redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "A, $ycsb_run_output" >> $run_output
 
-printf "\n##################################################################################\n" >> $load_output
-printf "Loading data worload C try $i\n" >> $load_output
-./bin/ycsb load redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $load_output
-printf "\n##################################################################################\n" >> $run_output
-printf "Running test workoad C try $i\n" >> $run_output
-./bin/ycsb run redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $run_output
+	ycsb_load_output=$(./bin/ycsb load redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "B, $ycsb_load_output" >> $load_output
+	ycsb_run_output=$(./bin/ycsb run redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "B, $ycsb_run_output" >> $run_output
 
-#for workload in "$workloads"/workload*[a-c]
-#do
-#	if [[ -f "$workload" ]]; then
-#		for i in {1..3}
-#		do
-#			printf "\n##################################################################################\n" >> $load_output
-#			printf "Loading data $(basename "$workload") try $i \n" >> $load_output
-#			./bin/ycsb load redis -s -P $workload -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $load_output
-#			printf "\n##################################################################################\n" >> $run_output
-#			printf "Running test $(basename "$workload") try $i\n" >> $run_output
-#			./bin/ycsb run redis -s -P $workload -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $run_output
-#		done
-#	fi
-#done
+	ycsb_load_output=$(./bin/ycsb load redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "C, $ycsb_load_output" >> $load_output
+	ycsb_run_output=$(./bin/ycsb run redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true")
+	echo "C, $ycsb_run_output" >> $run_output
 
+done
 docker-compose -f docker-compose.yml down -v
 echo "Finished Redis Benchmark"
