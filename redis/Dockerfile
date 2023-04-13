@@ -153,8 +153,12 @@ RUN mvn -pl site.ycsb:redis-binding -am clean package
 
 COPY docker-compose.yml /home/admin/docker-compose.yml
 
+COPY save_docker_stats.sh /home/admin/
+RUN sudo chmod +x /home/admin/save_docker_stats.sh
+
 COPY script.sh /home/admin/
 RUN sudo chmod +x /home/admin/script.sh
+RUN echo "/home/admin/script.sh" >> /home/admin/.profile 
 
 USER root
 EXPOSE 22
