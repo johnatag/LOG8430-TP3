@@ -59,6 +59,12 @@ RUN sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7
 COPY script.sh /home/admin/
 RUN sudo chmod +x /home/admin/script.sh
 
+COPY save_docker_stats.sh /home/admin/save_docker_stats.sh
+RUN sudo chmod +x /home/admin/save_docker_stats.sh
+
+COPY workloads/ /home/admin/workloads
+RUN sudo chmod +x /home/admin/workloads/*
+
 USER root
 EXPOSE 22
 

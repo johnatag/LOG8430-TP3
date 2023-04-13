@@ -10,25 +10,29 @@ sudo docker tag hyperledger/fabric-ccenv:1.4.4 hyperledger/fabric-ccenv:latest
 echo "Starting Docker Stats...."
 ./save_docker_stats.sh $$ &
 
-echo "Starting Caliper using YCSB..."
+echo "Starting Caliper using Caliper-benchmark..."
 
-caliper-config="/home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml"
-html-report="/home/admin/caliper-benchmarks/report.html"
+sudo chown :999 /home/admin/output
 
-# Workload A
-rm -f ${caliper-config}
-cp /home/admin/workloads/workloada ${caliper-config}
-cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
-cp ${html-report} /home/admin/output/${html-report}-A.html
+config="/home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml"
+html="/home/admin/caliper-benchmarks/benchmarks/report.html"
 
-# Workload B
-rm -f ${caliper-config}
-cp /home/admin/workloads/workloadb ${caliper-config}
-cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
-cp ${html-report} /home/admin/output/${html-report}-B.html
+for i in {1..3}; do
+	# Workload A
+	rm -f /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cp /home/admin/workloads/workloada /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/v1/v1.4.4/2org1peercouchdb_raft/fabric-go-tls-solo.yaml
+	cp /home/admin/caliper-benchmarks/benchmarks/report.html /home/admin/output/html-report-A-$i.html
 
-# Workload C
-rm -f ${caliper-config}
-cp /home/admin/workloads/workloadc ${caliper-config}
-cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
-cp ${html-report} /home/admin/output/${html-report}-C.html
+	# Workload B
+	rm -f /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cp /home/admin/workloads/workloadb /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/v1/v1.4.4/2org1peercouchdb_raft/fabric-go-tls-solo.yaml
+	cp /home/admin/caliper-benchmarks/benchmarks/report.html /home/admin/output/html-report-B-$i.html
+
+	# Workload C
+	rm -f /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cp /home/admin/workloads/workloadc /home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml
+	cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/v1/v1.4.4/2org1peercouchdb_raft/fabric-go-tls-solo.yaml
+	cp /home/admin/caliper-benchmarks/benchmarks/report.html /home/admin/output/html-report-C-$i.html
+done
