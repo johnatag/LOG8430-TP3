@@ -1,6 +1,6 @@
 #!/bin/bash
 
-other_script_pid=\$1
+other_script_pid=$1
 output_file="docker_stats.csv"
 
 # Write the headers to the output file
