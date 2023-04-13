@@ -12,10 +12,10 @@ test:
       workload:
         module: benchmarks/samples/fabric/marbles/init.js
     - label: query
-      txDuration: 15
+      txNumber: 500
       rateControl:
         type: fixed-rate
         opts:
-          tps: 5
+          tps: 25
       workload:
         module: benchmarks/samples/fabric/marbles/query.js
