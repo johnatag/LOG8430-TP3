@@ -21,7 +21,7 @@ do
 			printf "\n##################################################################################\n" >> $load_output
 			printf "Loading data $(basename "$workload") try $i \n" >> $load_output
 			./bin/ycsb load redis -s -P $workload -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $load_output
-			printf "\n##################################################################################\n" >> $run_outputv
+			printf "\n##################################################################################\n" >> $run_output
 			printf "Running test $(basename "$workload") try $i\n" >> $run_output
 			./bin/ycsb run redis -s -P $workload -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> $run_output
 		done
