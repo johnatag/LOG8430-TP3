@@ -10,7 +10,7 @@ sudo docker tag hyperledger/fabric-ccenv:1.4.4 hyperledger/fabric-ccenv:latest
 sudo chown :999 /home/admin/output
 
 echo "Starting Docker Stats...."
-./save_docker_stats.sh $$ &
+cd /home/admin/ && ./save_docker_stats.sh $$ &
 
 echo "Starting Caliper using Caliper-benchmark..."
 

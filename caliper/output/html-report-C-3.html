@@ -128,13 +128,12 @@
                 <li>DLT: &nbsp<span style="font-weight: 500;">fabric</span></li>
                 <li>Name: &nbsp<span style="font-weight: 500;"></span></li>
                 <li>Description: &nbsp<span style="font-weight: 500;"></span></li>
-                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">2</span></li>
+                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">1</span></li>
                 <li><a href="#benchmarkInfo">Details</a></li>
             </ul>
             <ul>
                 <h3>&nbspBenchmark results</h3>
                 <li><a href="#benchmarksummary">Summary</a></li>
-                    <li><a href="#init">init</a></li>
                     <li><a href="#query">query</a></li>
             </ul>
             <ul>
@@ -158,33 +157,10 @@
                     </tr>
 
                     <tr>
-                         <td>init</td> <td>50</td> <td>0</td> <td>79.6</td> <td>0.93</td> <td>0.37</td> <td>0.67</td> <td>43.9</td>
-                    </tr>
-                    <tr>
-                         <td>query</td> <td>950</td> <td>0</td> <td>235.6</td> <td>13.12</td> <td>7.68</td> <td>9.90</td> <td>70.2</td>
+                         <td>query</td> <td>1000</td> <td>0</td> <td>223.7</td> <td>6.24</td> <td>2.62</td> <td>4.64</td> <td>116.5</td>
                     </tr>
                 </table>
             </div>
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="init">
-                <h2>Benchmark round: init</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 4000
-</pre>
-                        <h3>Performance metrics for init</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>init</td> <td>50</td> <td>0</td> <td>79.6</td> <td>0.93</td> <td>0.37</td> <td>0.67</td> <td>43.9</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for init</h3>
-            </div>
-
             <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="query">
                 <h2>Benchmark round: query</h2>
                 <p></p>
@@ -199,7 +175,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>query</td> <td>950</td> <td>0</td> <td>235.6</td> <td>13.12</td> <td>7.68</td> <td>9.90</td> <td>70.2</td>
+                                     <td>query</td> <td>1000</td> <td>0</td> <td>223.7</td> <td>6.24</td> <td>2.62</td> <td>4.64</td> <td>116.5</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for query</h3>
@@ -212,16 +188,8 @@
   type: local
   number: 5
 rounds:
-  - label: init
-    txNumber: 50
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 4000
-    workload:
-      module: benchmarks&#x2F;samples&#x2F;fabric&#x2F;marbles&#x2F;init.js
   - label: query
-    txNumber: 950
+    txNumber: 1000
     rateControl:
       type: fixed-rate
       opts:
