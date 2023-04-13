@@ -7,8 +7,28 @@ cd /home/admin/caliper-benchmarks/ && npm rebuild
 sudo docker pull hyperledger/fabric-ccenv:1.4.4 
 sudo docker tag hyperledger/fabric-ccenv:1.4.4 hyperledger/fabric-ccenv:latest 
 
-# Running Workload A
+echo "Starting Docker Stats...."
+./save_docker_stats.sh $$ &
 
-while true; do docker stats --no-stream | tee --append stats.txt; sleep 30; done
-cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/v1/v1.4.4/2org1peercouchdb_raft/fabric-go-tls-solo.yaml
+echo "Starting Caliper using YCSB..."
 
+caliper-config="/home/admin/caliper-benchmarks/benchmarks/samples/fabric/marbles/config.yaml"
+html-report="/home/admin/caliper-benchmarks/report.html"
+
+# Workload A
+rm -f ${caliper-config}
+cp /home/admin/workloads/workloada ${caliper-config}
+cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
+cp ${html-report} /home/admin/output/${html-report}-A.html
+
+# Workload B
+rm -f ${caliper-config}
+cp /home/admin/workloads/workloadb ${caliper-config}
+cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
+cp ${html-report} /home/admin/output/${html-report}-B.html
+
+# Workload C
+rm -f ${caliper-config}
+cp /home/admin/workloads/workloadc ${caliper-config}
+cd /home/admin/caliper-benchmarks/ && npx caliper launch manager --caliper-workspace . --caliper-benchconfig benchmarks/>
+cp ${html-report} /home/admin/output/${html-report}-C.html

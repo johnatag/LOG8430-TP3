@@ -6,16 +6,16 @@ test:
     - label: init
       txNumber: 500
       rateControl:
-        type: fixed-rate
+        type: fixed-backlog
         opts:
-          tps: 25
+          unfinished_per_client: 10000
       workload:
         module: benchmarks/samples/fabric/marbles/init.js
     - label: query
       txNumber: 500
       rateControl:
-        type: fixed-rate
+        type: fixed-backlog
         opts:
-          tps: 25
+          unfinished_per_client: 10000
       workload:
         module: benchmarks/samples/fabric/marbles/query.js

@@ -49,37 +49,16 @@ RUN npm install --only=prod @hyperledger/caliper-cli@0.4
 RUN npm audit fix || true
 
 # Installing NVM and NodeJS
-#ENV NVM_DIR /home/admin/.nvm
-#RUN mkdir -p $NVM_DIR
 SHELL ["/bin/bash", "--login", "-i",  "-c"]
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
 RUN source /home/admin/.bashrc && nvm install 8.9 && nvm alias default 8.9 && nvm use default 
 SHELL ["/bin/bash", "--login", "-c"]
-#RUN sudo .$HOME/.nvm/nvm.sh && nvm install 8.9 && nvm default alias 8.9 && nvm use default
-
-#ENV NODE_VERSION v8.9
-
-#RUN /bin/bash -c "echo 'export NVM_DIR=$NVM_DIR' >> /home/admin/.bashrc"
-#RUN /bin/bash -c "echo '[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"' >> /home/admin/.bashrc"
-#RUN /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION"
-
-#ENV NODE_PATH $NVM_DIR/versions/node/$NODE_VERSION/lib/node_modules
-#ENV PATH $NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
 
 RUN sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
 COPY script.sh /home/admin/
 RUN sudo chmod +x /home/admin/script.sh
 
-#RUN npx caliper bind --caliper-bind-sut fabric:1.4.11  
-
-#WORKDIR /home/admin/caliper-benchmarks/networks/fabric/config_raft/
-#RUN ./generate.sh
-#WORKDIR /home/admin/caliper-benchmarks/networks/fabric/config_solo_raft/
-#RUN ./generate.sh
-
-#WORKDIR /home/admin/caliper-benchmarks/
-#RUN npm rebuild
 USER root
 EXPOSE 22
 

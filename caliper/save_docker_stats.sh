@@ -16,7 +16,7 @@ while true; do
   stats=$(docker stats --no-stream --format "{{.Container}},{{.CPUPerc}},{{.MemUsage}}")
 
   # Append the stats to the output file
-  echo "$stats" | tail -n +2 >> "$output_file"
+  echo "$stats" | tail -n +1 >> "$output_file"
 
   # Wait for 30 seconds
   sleep 30
