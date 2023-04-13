@@ -1,17 +1,19 @@
 #!/bin/bash
 
-echo "Starting Docker Stats...\n"
+echo "Starting Docker Stats..."
 ./save_docker_stats.sh $$ &
 
-echo "Start Redis Benchmark using YCSB..."
+echo "Starting Redis Benchmark using YCSB..."
 docker-compose -f docker-compose.yml up --scale redis-master=1 --scale redis-replica=5 -d
 
 cd /home/admin/YCSB/
 
 # Run benchmarks 3 times for each workload
 workloads="/home/admin/YCSB/workloads"
-load_output="/home/admin/load_output.csv"
-run_output="/home/admin/run_output.csv"
+
+mkdir -p /home/admin/output/
+load_output="/home/admin/output/load_output.csv"
+run_output="/home/admin/output/run_output.csv"
 
 for workload in "$workloads"/workload*[a-f]
 do
@@ -29,4 +31,4 @@ do
 done
 
 docker-compose -f docker-compose.yml down -v
-printf "\nFinished Redis Benchmark\n\n"
+echo "Finished Redis Benchmark"
