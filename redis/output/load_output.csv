@@ -1,76 +1,76 @@
 Workload, Action, Type, Result
 A, [OVERALL], RunTime(ms), 1122
-[OVERALL], Throughput(ops/sec), 891.2655971479501
-[TOTAL_GCS_scavenge], Count, 15
-[TOTAL_GC_TIME_scavenge], Time(ms), 30
-[TOTAL_GC_TIME_%_scavenge], Time(%), 2.6737967914438503
-[TOTAL_GCS_global], Count, 0
-[TOTAL_GC_TIME_global], Time(ms), 0
-[TOTAL_GC_TIME_%_global], Time(%), 0.0
-[TOTAL_GCs], Count, 15
-[TOTAL_GC_TIME], Time(ms), 30
-[TOTAL_GC_TIME_%], Time(%), 2.6737967914438503
-[CLEANUP], Operations, 1
-[CLEANUP], AverageLatency(us), 475.0
-[CLEANUP], MinLatency(us), 475
-[CLEANUP], MaxLatency(us), 475
-[CLEANUP], 95thPercentileLatency(us), 475
-[CLEANUP], 99thPercentileLatency(us), 475
-[INSERT], Operations, 1000
-[INSERT], AverageLatency(us), 985.226
-[INSERT], MinLatency(us), 483
-[INSERT], MaxLatency(us), 18335
-[INSERT], 95thPercentileLatency(us), 1404
-[INSERT], 99thPercentileLatency(us), 2435
-[INSERT], Return=OK, 1000
+A, [OVERALL], Throughput(ops/sec), 891.2655971479501
+A, [TOTAL_GCS_scavenge], Count, 15
+A, [TOTAL_GC_TIME_scavenge], Time(ms), 30
+A, [TOTAL_GC_TIME_%_scavenge], Time(%), 2.6737967914438503
+A, [TOTAL_GCS_global], Count, 0
+A, [TOTAL_GC_TIME_global], Time(ms), 0
+A, [TOTAL_GC_TIME_%_global], Time(%), 0.0
+A, [TOTAL_GCs], Count, 15
+A, [TOTAL_GC_TIME], Time(ms), 30
+A, [TOTAL_GC_TIME_%], Time(%), 2.6737967914438503
+A, [CLEANUP], Operations, 1
+A, [CLEANUP], AverageLatency(us), 475.0
+A, [CLEANUP], MinLatency(us), 475
+A, [CLEANUP], MaxLatency(us), 475
+A, [CLEANUP], 95thPercentileLatency(us), 475
+A, [CLEANUP], 99thPercentileLatency(us), 475
+A, [INSERT], Operations, 1000
+A, [INSERT], AverageLatency(us), 985.226
+A, [INSERT], MinLatency(us), 483
+A, [INSERT], MaxLatency(us), 18335
+A, [INSERT], 95thPercentileLatency(us), 1404
+A, [INSERT], 99thPercentileLatency(us), 2435
+A, [INSERT], Return=OK, 1000
 B, [OVERALL], RunTime(ms), 580
-[OVERALL], Throughput(ops/sec), 1724.1379310344828
-[TOTAL_GCS_scavenge], Count, 17
-[TOTAL_GC_TIME_scavenge], Time(ms), 23
-[TOTAL_GC_TIME_%_scavenge], Time(%), 3.9655172413793105
-[TOTAL_GCS_global], Count, 0
-[TOTAL_GC_TIME_global], Time(ms), 0
-[TOTAL_GC_TIME_%_global], Time(%), 0.0
-[TOTAL_GCs], Count, 17
-[TOTAL_GC_TIME], Time(ms), 23
-[TOTAL_GC_TIME_%], Time(%), 3.9655172413793105
-[CLEANUP], Operations, 1
-[CLEANUP], AverageLatency(us), 475.0
-[CLEANUP], MinLatency(us), 475
-[CLEANUP], MaxLatency(us), 475
-[CLEANUP], 95thPercentileLatency(us), 475
-[CLEANUP], 99thPercentileLatency(us), 475
-[INSERT], Operations, 1000
-[INSERT], AverageLatency(us), 487.89
-[INSERT], MinLatency(us), 343
-[INSERT], MaxLatency(us), 11183
-[INSERT], 95thPercentileLatency(us), 739
-[INSERT], 99thPercentileLatency(us), 1871
-[INSERT], Return=OK, 1000
+B, [OVERALL], Throughput(ops/sec), 1724.1379310344828
+B, [TOTAL_GCS_scavenge], Count, 17
+B, [TOTAL_GC_TIME_scavenge], Time(ms), 23
+B, [TOTAL_GC_TIME_%_scavenge], Time(%), 3.9655172413793105
+B, [TOTAL_GCS_global], Count, 0
+B, [TOTAL_GC_TIME_global], Time(ms), 0
+B, [TOTAL_GC_TIME_%_global], Time(%), 0.0
+B, [TOTAL_GCs], Count, 17
+B, [TOTAL_GC_TIME], Time(ms), 23
+B, [TOTAL_GC_TIME_%], Time(%), 3.9655172413793105
+B, [CLEANUP], Operations, 1
+B, [CLEANUP], AverageLatency(us), 475.0
+B, [CLEANUP], MinLatency(us), 475
+B, [CLEANUP], MaxLatency(us), 475
+B, [CLEANUP], 95thPercentileLatency(us), 475
+B, [CLEANUP], 99thPercentileLatency(us), 475
+B, [INSERT], Operations, 1000
+B, [INSERT], AverageLatency(us), 487.89
+B, [INSERT], MinLatency(us), 343
+B, [INSERT], MaxLatency(us), 11183
+B, [INSERT], 95thPercentileLatency(us), 739
+B, [INSERT], 99thPercentileLatency(us), 1871
+B, [INSERT], Return=OK, 1000
 C, [OVERALL], RunTime(ms), 669
-[OVERALL], Throughput(ops/sec), 1494.7683109118086
-[TOTAL_GCS_scavenge], Count, 16
-[TOTAL_GC_TIME_scavenge], Time(ms), 27
-[TOTAL_GC_TIME_%_scavenge], Time(%), 4.0358744394618835
-[TOTAL_GCS_global], Count, 0
-[TOTAL_GC_TIME_global], Time(ms), 0
-[TOTAL_GC_TIME_%_global], Time(%), 0.0
-[TOTAL_GCs], Count, 16
-[TOTAL_GC_TIME], Time(ms), 27
-[TOTAL_GC_TIME_%], Time(%), 4.0358744394618835
-[CLEANUP], Operations, 1
-[CLEANUP], AverageLatency(us), 549.0
-[CLEANUP], MinLatency(us), 549
-[CLEANUP], MaxLatency(us), 549
-[CLEANUP], 95thPercentileLatency(us), 549
-[CLEANUP], 99thPercentileLatency(us), 549
-[INSERT], Operations, 1000
-[INSERT], AverageLatency(us), 577.24
-[INSERT], MinLatency(us), 337
-[INSERT], MaxLatency(us), 10791
-[INSERT], 95thPercentileLatency(us), 865
-[INSERT], 99thPercentileLatency(us), 2089
-[INSERT], Return=OK, 1000
+C, [OVERALL], Throughput(ops/sec), 1494.7683109118086
+C, [TOTAL_GCS_scavenge], Count, 16
+C, [TOTAL_GC_TIME_scavenge], Time(ms), 27
+C, [TOTAL_GC_TIME_%_scavenge], Time(%), 4.0358744394618835
+C, [TOTAL_GCS_global], Count, 0
+C, [TOTAL_GC_TIME_global], Time(ms), 0
+C, [TOTAL_GC_TIME_%_global], Time(%), 0.0
+C, [TOTAL_GCs], Count, 16
+C, [TOTAL_GC_TIME], Time(ms), 27
+C, [TOTAL_GC_TIME_%], Time(%), 4.0358744394618835
+C, [CLEANUP], Operations, 1
+C, [CLEANUP], AverageLatency(us), 549.0
+C, [CLEANUP], MinLatency(us), 549
+C, [CLEANUP], MaxLatency(us), 549
+C, [CLEANUP], 95thPercentileLatency(us), 549
+C, [CLEANUP], 99thPercentileLatency(us), 549
+C, [INSERT], Operations, 1000
+C, [INSERT], AverageLatency(us), 577.24
+C, [INSERT], MinLatency(us), 337
+C, [INSERT], MaxLatency(us), 10791
+C, [INSERT], 95thPercentileLatency(us), 865
+C, [INSERT], 99thPercentileLatency(us), 2089
+C, [INSERT], Return=OK, 1000
 A, [OVERALL], RunTime(ms), 722
 [OVERALL], Throughput(ops/sec), 1385.0415512465374
 [TOTAL_GCS_scavenge], Count, 16
