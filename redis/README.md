@@ -5,8 +5,8 @@ This folder contains all the files necessary to run the Redis Benchmark using YS
 Here are all the steps to run it:
 - Install Docker
 - Use sysbox as the docker runtime
-- ```bash sudo docker build -t redis-benchmark .```
-- ```bash sudo docker run -it redis-benchmark```
+- ```sudo docker build -t redis-benchmark .```
+- ```sudo docker run -it redis-benchmark```
 
 After running the docker, the container will prompt you to login. The default password for the admin account is: admin.
 
